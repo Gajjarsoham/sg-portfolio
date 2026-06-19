@@ -39,7 +39,7 @@ const Background = () => {
             />
 
             {/* GSAP Animated Gradient Blobs */}
-            <div ref={blobLayerRef} className="absolute inset-0 w-full h-[120vh] -top-[10vh] z-0">
+            <div ref={blobLayerRef} className="absolute inset-0 w-full h-[120vh] top-[10vh] z-0">
                 <div className="absolute top-[20%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-indigo-900/20 blur-[120px]" />
                 <div className="absolute top-[60%] right-[10%] w-[35vw] h-[35vw] rounded-full bg-purple-900/10 blur-[100px]" />
             </div>

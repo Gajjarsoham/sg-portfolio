@@ -223,7 +223,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section id="home" className="relative z-10 min-h-screen flex items-center justify-center px-6 pt-20">
+        <section id="home" className="relative z-10 min-h-screen flex items-start md:items-center justify-center px-6 pt-32 md:pt-20 overflow-hidden">
             <div className="max-w-6xl w-full z-10 grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h1 className="hero-element text-5xl md:text-7xl font-bold font-display text-zinc-50 mb-4 tracking-tight">
@@ -249,7 +249,7 @@ const Hero = () => {
                     </div>
                 </div>
 
-                <div className="hero-element hidden md:flex justify-end relative w-full">
+                <div className="hero-element flex justify-center md:justify-end relative w-full mt-12 md:mt-0">
                     <LiveStackVisualizer />
                 </div>
             </div>
