@@ -1,87 +1,129 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { Layout, Database } from 'lucide-react';
+// import React, { useEffect, useRef } from 'react';
+// import { gsap } from 'gsap';
+// import { Layout, Database } from 'lucide-react';
+
+// const Skills = () => {
+//     const sectionRef = useRef(null);
+
+//     useEffect(() => {
+//         // Reveal section
+//         gsap.fromTo(sectionRef.current,
+//             { y: 50, opacity: 0 },
+//             {
+//                 y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
+//                 scrollTrigger: { trigger: sectionRef.current, start: "top 80%" }
+//             }
+//         );
+
+//         // Animate skill bars specifically
+//         gsap.utils.toArray('.skill-bar').forEach(bar => {
+//             const targetWidth = bar.getAttribute('data-width');
+//             gsap.fromTo(bar,
+//                 { width: 0 },
+//                 {
+//                     width: `${targetWidth}%`, duration: 1.5, ease: "power2.out",
+//                     scrollTrigger: { trigger: sectionRef.current, start: "top 75%" }
+//                 }
+//             );
+//         });
+//     }, []);
+
+//     return (
+//         <section id="skills" className="py-24 px-6" ref={sectionRef}>
+//             <div className="max-w-6xl mx-auto">
+//                 <div className="flex items-center gap-4 mb-12">
+//                     <h2 className="text-3xl font-bold font-display text-slate-900">Technical Arsenal</h2>
+//                     <div className="h-px bg-slate-200 flex-1 max-w-xs"></div>
+//                 </div>
+
+//                 <div className="grid md:grid-cols-2 gap-16">
+//                     {/* Frontend */}
+//                     <div>
+//                         <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+//                             <Layout className="text-blue-600" size={24} /> Frontend Development
+//                         </h3>
+//                         <div className="space-y-6">
+//                             {[
+//                                 { name: 'React.js', val: 90 }, { name: 'JavaScript (ES6+)', val: 85 },
+//                                 { name: 'Tailwind CSS', val: 95 }, { name: 'HTML5/CSS3', val: 90 },
+//                             ].map(skill => (
+//                                 <div key={skill.name}>
+//                                     <div className="flex justify-between mb-2">
+//                                         <span className="font-medium text-slate-700">{skill.name}</span>
+//                                         <span className="text-sm text-slate-400">{skill.val}%</span>
+//                                     </div>
+//                                     <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
+//                                         <div className="h-full bg-blue-600 rounded-full skill-bar" data-width={skill.val}></div>
+//                                     </div>
+//                                 </div>
+//                             ))}
+//                         </div>
+//                     </div>
+
+//                     {/* Backend */}
+//                     <div>
+//                         <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+//                             <Database className="text-blue-600" size={24} /> Backend & Tools
+//                         </h3>
+//                         <div className="space-y-6">
+//                             {[
+//                                 { name: 'Node.js & Express', val: 80 }, { name: 'MongoDB', val: 85 },
+//                                 { name: 'REST APIs', val: 90 }, { name: 'Git & GitHub', val: 85 },
+//                             ].map(skill => (
+//                                 <div key={skill.name}>
+//                                     <div className="flex justify-between mb-2">
+//                                         <span className="font-medium text-slate-700">{skill.name}</span>
+//                                         <span className="text-sm text-slate-400">{skill.val}%</span>
+//                                     </div>
+//                                     <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
+//                                         <div className="h-full bg-blue-600 rounded-full skill-bar" data-width={skill.val}></div>
+//                                     </div>
+//                                 </div>
+//                             ))}
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </section>
+//     );
+// };
+
+// export default Skills;
+
+import React from 'react';
 
 const Skills = () => {
-    const sectionRef = useRef(null);
-
-    useEffect(() => {
-        // Reveal section
-        gsap.fromTo(sectionRef.current,
-            { y: 50, opacity: 0 },
-            {
-                y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
-                scrollTrigger: { trigger: sectionRef.current, start: "top 80%" }
-            }
-        );
-
-        // Animate skill bars specifically
-        gsap.utils.toArray('.skill-bar').forEach(bar => {
-            const targetWidth = bar.getAttribute('data-width');
-            gsap.fromTo(bar,
-                { width: 0 },
-                {
-                    width: `${targetWidth}%`, duration: 1.5, ease: "power2.out",
-                    scrollTrigger: { trigger: sectionRef.current, start: "top 75%" }
-                }
-            );
-        });
-    }, []);
+    const skillCategories = [
+        { title: "Frontend", skills: ["React.js", "JavaScript (ES6+)", "Tailwind CSS", "HTML5", "CSS3", "Redux"] },
+        { title: "Backend", skills: ["Node.js", "Express.js", "REST APIs"] },
+        { title: "Database", skills: ["MongoDB", "Mongoose"] },
+        { title: "Tools & Version Control", skills: ["Git", "GitHub", "Postman", "Vite", "Vercel"] }
+    ];
 
     return (
-        <section id="skills" className="py-24 px-6" ref={sectionRef}>
+        <section id="skills" className="py-24 px-6 relative z-10">
             <div className="max-w-6xl mx-auto">
                 <div className="flex items-center gap-4 mb-12">
-                    <h2 className="text-3xl font-bold font-display text-slate-900">Technical Arsenal</h2>
-                    <div className="h-px bg-slate-200 flex-1 max-w-xs"></div>
+                    <h2 className="text-3xl font-bold font-display text-zinc-50">Toolkit</h2>
+                    <div className="h-px bg-zinc-800 flex-1 max-w-xs"></div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-16">
-                    {/* Frontend */}
-                    <div>
-                        <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                            <Layout className="text-blue-600" size={24} /> Frontend Development
-                        </h3>
-                        <div className="space-y-6">
-                            {[
-                                { name: 'React.js', val: 90 }, { name: 'JavaScript (ES6+)', val: 85 },
-                                { name: 'Tailwind CSS', val: 95 }, { name: 'HTML5/CSS3', val: 90 },
-                            ].map(skill => (
-                                <div key={skill.name}>
-                                    <div className="flex justify-between mb-2">
-                                        <span className="font-medium text-slate-700">{skill.name}</span>
-                                        <span className="text-sm text-slate-400">{skill.val}%</span>
-                                    </div>
-                                    <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
-                                        <div className="h-full bg-blue-600 rounded-full skill-bar" data-width={skill.val}></div>
-                                    </div>
-                                </div>
-                            ))}
+                <div className="grid md:grid-cols-2 gap-12">
+                    {skillCategories.map((category, idx) => (
+                        <div key={idx}>
+                            <h3 className="text-lg font-display text-zinc-300 mb-4">{category.title}</h3>
+                            <div className="flex flex-wrap gap-3">
+                                {category.skills.map(skill => (
+                                    <span
+                                        key={skill}
+                                        className="px-4 py-2 bg-zinc-900 border border-zinc-800 text-zinc-400 text-sm rounded-md hover:border-indigo-500/50 transition-colors font-sans"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-
-                    {/* Backend */}
-                    <div>
-                        <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                            <Database className="text-blue-600" size={24} /> Backend & Tools
-                        </h3>
-                        <div className="space-y-6">
-                            {[
-                                { name: 'Node.js & Express', val: 80 }, { name: 'MongoDB', val: 85 },
-                                { name: 'REST APIs', val: 90 }, { name: 'Git & GitHub', val: 85 },
-                            ].map(skill => (
-                                <div key={skill.name}>
-                                    <div className="flex justify-between mb-2">
-                                        <span className="font-medium text-slate-700">{skill.name}</span>
-                                        <span className="text-sm text-slate-400">{skill.val}%</span>
-                                    </div>
-                                    <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
-                                        <div className="h-full bg-blue-600 rounded-full skill-bar" data-width={skill.val}></div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </section>

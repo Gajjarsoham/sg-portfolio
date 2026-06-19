@@ -1,5 +1,81 @@
-@import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap'); */
+
+/* The v4 way to import Tailwind */
+/* @import "tailwindcss";
+@config "../tailwind.config.js"; */
+
+/* The v4 way to configure custom fonts and colors */
+/* @theme {
+  --color-zinc-950: #0a0a0f;
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Clash Display", sans-serif;
+}
 
 html {
   scroll-behavior: smooth;
+  background-color: #0a0a0f;
+} */
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-zinc-950: #0a0a0f;
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Clash Display", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0a0a0f;
+}
+
+:root {
+  /* Default cursor coordinates */
+  --mouse-x: 0;
+  --mouse-y: 0;
+}
+
+@layer components {
+  /* High-Performance Layered Hover Button */
+  .btn-animated {
+    @apply relative overflow-hidden inline-flex items-center justify-center gap-2 transition-transform duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950;
+    transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  
+  .btn-animated:hover, .btn-animated:focus-visible {
+    transform: scale(1.03);
+  }
+
+  /* The Directional Fill-Sweep */
+  .btn-animated::before {
+    content: '';
+    @apply absolute inset-0 bg-white/10 origin-left scale-x-0 transition-transform duration-300 z-0;
+    transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .btn-animated:hover::before, .btn-animated:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  /* Ensures text stays above the sweep */
+  .btn-animated-text {
+    @apply relative z-10 flex items-center gap-2;
+  }
+
+  /* The 4px Icon Translate */
+  .btn-animated-icon {
+    @apply relative z-10 transition-transform duration-300;
+    transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .btn-animated:hover .btn-animated-icon, .btn-animated:focus-visible .btn-animated-icon {
+    transform: translateX(4px);
+  }
 }
